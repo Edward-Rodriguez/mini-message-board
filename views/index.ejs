@@ -13,7 +13,7 @@
             <% messages.forEach(message => { %>
                 <li class="message">
                     <h2 class="user"><%= message.user %></h2>
-                    <h4 class="date"><%= message.added %></h4>
+                    <h4 class="date"><%= formatDate(message.added) %></h4>
                     <p class="text-message"><%= message.text %></p>
                 </li>
             <% }); %>

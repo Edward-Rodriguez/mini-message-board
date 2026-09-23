@@ -6,15 +6,38 @@ async function getMessages(req, res) {
 
   if (!messagesFromDb) throw new NotFoundError('Messages not found');
 
-  res.render('index', { title: 'Mini Messageboard', messages: messagesFromDb });
+  res.render('index', {
+    title: 'Mini Messageboard',
+    messages: messagesFromDb,
+    formatDate,
+  });
 }
 
 async function createNewMessage(req, res) {
-  const messagesFromDb = await messages; // mocking db response
+  // const messagesFromDb = await messages; // mocking db response
 
-  if (!messagesFromDb) throw new NotFoundError('Messages not found');
+  // if (!messagesFromDb) throw new NotFoundError('Messages not found');
 
   res.render('form', { title: 'New Message' });
 }
 
-export { getMessages, createNewMessage };
+async function postNewMessage(req, res) {
+  const { author, msg } = req.body;
+  messages.push({ user: author, text: msg, added: new Date() });
+  res.redirect('/');
+}
+
+function formatDate(date) {
+  return date
+    .toLocaleString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true,
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    })
+    .replace(/,/g, ' ');
+}
+
+export { getMessages, createNewMessage, postNewMessage };
