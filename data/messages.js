@@ -13,7 +13,7 @@ const messages = [
   {
     text: 'Hi there!',
     user: 'Amando',
-    added: formatDate(Date()),
+    added: formatDate(new Date()),
   },
   {
     text: 'Hello World!',

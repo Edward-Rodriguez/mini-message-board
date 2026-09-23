@@ -27,15 +27,17 @@ h1 {
 }
 
 .message-list {
+  min-width: 300px;
   display: flex;
   font-weight: flex;
   flex-direction: column;
   height: 100%;
-  align-items: center;
+  align-items: flex-start;
   gap: 30px;
 }
 
 .message {
+  width: 100%;
   list-style-type: none;
   display: flex;
   flex-direction: column;
@@ -52,4 +54,11 @@ h1 {
 
 .text-message {
   font-size: 18px;
+  margin-top: 8px;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgb(94.4941176471%, 94.6470588235%, 95.1058823529%),
+    0 0 0 4px rgb(81.6470588235%, 82.1568627451%, 83.6862745098%);
 }
