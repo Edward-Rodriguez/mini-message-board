@@ -9,4 +9,12 @@ async function getMessages(req, res) {
   res.render('index', { title: 'Mini Messageboard', messages: messagesFromDb });
 }
 
-export { getMessages };
+async function createNewMessage(req, res) {
+  const messagesFromDb = await messages; // mocking db response
+
+  if (!messagesFromDb) throw new NotFoundError('Messages not found');
+
+  res.render('form', { title: 'New Message' });
+}
+
+export { getMessages, createNewMessage };
