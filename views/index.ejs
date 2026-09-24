@@ -12,11 +12,23 @@
     <% if (messages.length > 0) { %> 
         <ul class="message-list">
             <% for (let i = messages.length - 1; i >= 0; i--) { %>
-                <li class="message">
-                    <h2 class="user"><%= messages[i].user %></h2>
-                    <h4 class="date"><%= formatDate(messages[i].added) %></h4>
-                    <p class="text-message"><%= messages[i].text %></p>
-                </li>
+                
+                  <li>
+                    <a href="/<% messages[i].id %>" class="msg-details">
+                      <div class="message">
+                        <div class="message-hdr">
+                          <h2 class="user"><%= messages[i].user %></h2>
+                          <img class="icon" src="/comment.svg" alt="replies"/>
+                          <span><%= Math.floor(Math.random()*100) %></span>
+                          <img class="icon" src="/views.svg" alt="views"/>
+                          <span><%= Math.floor(Math.random()*100) %></span>
+                        </div>
+                        <h4 class="date"><%= formatDate(messages[i].added) %></h4>
+                        <p class="text-message"><%= messages[i].text %></p>
+                      </div>
+                    </a>
+                  </li>
+    
             <% }; %>
         </ul>
     <% } %>

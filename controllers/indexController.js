@@ -23,8 +23,19 @@ async function createNewMessage(req, res) {
 
 async function postNewMessage(req, res) {
   const { author, msg } = req.body;
-  messages.push({ user: author, text: msg, added: new Date() });
+  messages.push({
+    user: author,
+    text: msg,
+    added: new Date(),
+    id: Math.floor(Math.random() * 1000000000),
+  });
   res.redirect('/');
+}
+
+async function messageDetails(req, res) {
+  const { id } = req.params;
+  const message = messages.find((msg) => msg.id === id);
+  res.render('/msg');
 }
 
 function formatDate(date) {

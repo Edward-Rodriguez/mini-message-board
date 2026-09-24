@@ -15,6 +15,7 @@ html {
 
 body {
   max-width: 1200px;
+  margin: 0 auto;
   min-height: 60vh;
   align-items: center;
   display: flex;
@@ -64,15 +65,54 @@ h1 {
   flex-direction: column;
   height: 100%;
   align-items: flex-start;
-  gap: 30px;
+  gap: 15px;
+}
+
+.message-list li {
+  width: 100%;
+  list-style-type: none;
 }
 
 .message {
-  width: 100%;
-  list-style-type: none;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgb(94.4941176471%, 94.6470588235%, 95.1058823529%),
+    0 0 0 4px rgb(81.6470588235%, 82.1568627451%, 83.6862745098%);
+  transition: background-color 0.3s;
+}
+
+.message-hdr {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.message-hdr h2 {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+}
+
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.message:hover {
+  cursor: pointer;
+  background-color: #e2edfd79;
 }
 
 .user {
@@ -86,10 +126,4 @@ h1 {
 .text-message {
   font-size: 18px;
   margin-top: 8px;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  box-shadow:
-    0 0 0 1px rgb(94.4941176471%, 94.6470588235%, 95.1058823529%),
-    0 0 0 4px rgb(81.6470588235%, 82.1568627451%, 83.6862745098%);
 }
