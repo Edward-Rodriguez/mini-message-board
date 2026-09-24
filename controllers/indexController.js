@@ -34,8 +34,12 @@ async function postNewMessage(req, res) {
 
 async function messageDetails(req, res) {
   const { id } = req.params;
-  const message = messages.find((msg) => msg.id === id);
-  res.render('/msg');
+  const message = messages.find((msg) => msg.id === Number(id));
+  res.render('msgDetails', {
+    title: message.text,
+    message: message,
+    formatDate,
+  });
 }
 
 function formatDate(date) {
@@ -51,4 +55,4 @@ function formatDate(date) {
     .replace(/,/g, ' ');
 }
 
-export { getMessages, createNewMessage, postNewMessage };
+export { getMessages, createNewMessage, postNewMessage, messageDetails };

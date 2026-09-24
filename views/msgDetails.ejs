@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css"/>
+    <title><%= title %></title>
+  </head>
+  <body id="msg-details-container">
+    <a href="/" class="link">Message Board</a>
+    <div class="msg-details">
+        <div class="author-msg">
+            <h3><%= message.text %></h3>
+            <p class="author-msg-details"><%= message.user %></p>
+            <p class="author-msg-details"><%= formatDate(message.added) %></p>  
+        </div>
+        <div class="msg-responses">
+            <% for (let i = message.replies.length - 1; i >= 0; i--) { %>
+                <div class="reply-box">
+                    <div class="replay-hdr">
+                        <h3><%= message.replies[i].user %></h3>
+                        <p><%= formatDate(message.replies[i].added) %></p>
+                    </div>
+                    <p><%= message.replies[i].text %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+  </body>
+</html>

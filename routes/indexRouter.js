@@ -8,11 +8,11 @@ import {
 
 const indexRouter = express.Router();
 
-indexRouter.get('/:id', messageDetails);
-
 indexRouter.get('/new', createNewMessage);
 
 indexRouter.post('/new', postNewMessage);
+
+indexRouter.get('/:id', messageDetails);
 
 indexRouter.get('/', getMessages);
 

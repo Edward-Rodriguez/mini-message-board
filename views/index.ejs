@@ -6,15 +6,14 @@
     <link rel="stylesheet" href="/styles.css"/>
     <title><%= title %></title>
   </head>
-  <body>
+  <body id="msg-board-container">
     <h1>Messages</h1>
     <a href="/new" class="link">Add Message</a>
     <% if (messages.length > 0) { %> 
         <ul class="message-list">
             <% for (let i = messages.length - 1; i >= 0; i--) { %>
-                
                   <li>
-                    <a href="/<% messages[i].id %>" class="msg-details">
+                    <a href="/<%= messages[i].id %>" class="msg-details">
                       <div class="message">
                         <div class="message-hdr">
                           <h2 class="user"><%= messages[i].user %></h2>
@@ -28,7 +27,6 @@
                       </div>
                     </a>
                   </li>
-    
             <% }; %>
         </ul>
     <% } %>

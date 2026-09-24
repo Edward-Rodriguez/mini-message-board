@@ -13,7 +13,7 @@ html {
   padding: 0;
 }
 
-body {
+#msg-board-container {
   max-width: 1200px;
   margin: 0 auto;
   min-height: 60vh;
@@ -96,10 +96,14 @@ h1 {
   flex-grow: 1;
 }
 
-a {
-  text-decoration: none;
+a,
+a:visited,
+a:hover,
+a:active {
+  color: inherit; /* Inherits the color of the surrounding text */
+  text-decoration: none; /* Removes the default underline */
+  cursor: pointer; /* Ensures the hand pointer icon remains */
 }
-
 .icon {
   width: 18px;
   height: 18px;
@@ -126,4 +130,72 @@ a:visited {
 .text-message {
   font-size: 18px;
   margin-top: 8px;
+}
+
+#msg-details-container {
+  max-width: 400px;
+  margin: 0 auto;
+  min-height: 60vh;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Roboto', sans-serif;
+  gap: 24px;
+  font-size: 14px;
+}
+
+.author-msg {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: 2;
+  grid-template-areas:
+    'text text'
+    'author date';
+  column-gap: 12px;
+  background-color: #cfe3fe91;
+}
+
+.author-msg h3 {
+  grid-area: text;
+  font-size: 18px;
+}
+
+.author-msg p:first-child {
+  grid-area: author;
+}
+
+.author-msg p:last-child {
+  grid-area: date;
+}
+
+.msg-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.msg-responses {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reply-box {
+  width: 100%;
+  background-color: #eeeeee85;
+  padding: 12px;
+}
+
+.replay-hdr {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.replay-hdr p {
+  color: rgb(146, 146, 146);
+  font-size: 12px;
 }
