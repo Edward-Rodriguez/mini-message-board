@@ -35,6 +35,9 @@ async function postNewMessage(req, res) {
 async function messageDetails(req, res) {
   const { id } = req.params;
   const message = messages.find((msg) => msg.id === Number(id));
+
+  if (!message) throw new NotFoundError('Message not found!');
+
   res.render('msgDetails', {
     title: message.text,
     message: message,
