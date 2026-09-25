@@ -10,12 +10,12 @@
     <a href="/" class="link">
         <img src="/back.svg" alt="previous"/>
         Message Board
-    <a>
+    </a>
     <div class="msg-details">
         <div class="author-msg">
             <h3><%= message.text %></h3>
-            <p class="author-msg-details"><%= message.user %></p>
-            <p class="author-msg-details"><%= formatDate(message.added) %></p>  
+            <p><%= message.user %></p>
+            <p><%= formatDate(message.added) %></p>  
         </div>
         <div class="msg-responses">
             <% if(message.replies && message.replies.length > 0) { %>

@@ -121,12 +121,16 @@ h1 {
   max-width: 400px;
   margin: 40px auto;
   min-height: 60vh;
-  align-items: center;
   display: flex;
   flex-direction: column;
   font-family: 'Roboto', sans-serif;
   gap: 24px;
   font-size: 14px;
+  align-items: center;
+}
+
+#msg-details-container .link img {
+  height: 18px;
 }
 
 .author-msg {
@@ -138,7 +142,9 @@ h1 {
     'text text'
     'author date';
   column-gap: 12px;
+  row-gap: 6px;
   background-color: #cfe3fe91;
+  border: 4px solid #cfe3fe;
 }
 
 .author-msg h3 {
@@ -148,10 +154,13 @@ h1 {
 
 .author-msg p:first-child {
   grid-area: author;
+  font-size: 600px;
+  font-size: 14px;
 }
 
 .author-msg p:last-child {
   grid-area: date;
+  color: rgb(146, 146, 146);
 }
 
 .msg-details {
@@ -178,6 +187,7 @@ h1 {
   align-items: center;
   gap: 12px;
   font-size: 12px;
+  margin-bottom: 6px;
 }
 
 .replay-hdr p {
@@ -229,6 +239,7 @@ h1 {
   grid-area: msgInput;
   padding: 8px;
   font-size: 16px;
+  resize: none;
 }
 
 .form-container label {
