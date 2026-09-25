@@ -16,9 +16,11 @@ app.use((err, req, res, next) => {
   res.status(err.statusCode || 500).send(err.message);
 });
 
-const PORT = process.env.PORT;
+//
+const PORT = process.env.PORT || 3001;
+const HOST = process.env.HOST || 'localhost';
 
-app.listen(PORT, (error) => {
+app.listen(PORT, HOST, (error) => {
   error && console.log(error);
   console.log(`Listening on port ${PORT}`);
 });
