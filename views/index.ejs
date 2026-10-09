@@ -16,13 +16,13 @@
                     <a href="/<%= messages[i].id %>" class="msg-details">
                       <div class="message">
                         <div class="message-hdr">
-                          <h2 class="user"><%= messages[i].user %></h2>
+                          <h2 class="user"><%= messages[i].username %></h2>
                           <img class="icon" src="/comment.svg" alt="replies"/>
                           <span><%= Math.floor(Math.random()*100) %></span>
                           <img class="icon" src="/views.svg" alt="views"/>
                           <span><%= Math.floor(Math.random()*100) %></span>
                         </div>
-                        <h4 class="date"><%= formatDate(messages[i].added) %></h4>
+                        <h4 class="date"><%= formatDate(messages[i].date_created) %></h4>
                         <p class="text-message"><%= messages[i].text %></p>
                       </div>
                     </a>

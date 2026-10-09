@@ -1,8 +1,9 @@
 import { messages } from '../data/messages.js';
 import { NotFoundError } from '../errors/NotFoundError.js';
+import * as db from '../db/queries.js';
 
 async function getMessages(req, res) {
-  const messagesFromDb = await messages; // mocking db response
+  const messagesFromDb = await db.getAllmessages(); // mocking db response
 
   if (!messagesFromDb) throw new NotFoundError('Messages not found');
 
@@ -23,12 +24,13 @@ async function createNewMessage(req, res) {
 
 async function postNewMessage(req, res) {
   const { author, msg } = req.body;
-  messages.push({
-    user: author,
-    text: msg,
-    added: new Date(),
-    id: Math.floor(Math.random() * 1000000000),
-  });
+  // messages.push({
+  //   user: author,
+  //   text: msg,
+  //   added: new Date(),
+  //   id: Math.floor(Math.random() * 1000000000),
+  // });
+  db.addNewMessage(author, msg);
   res.redirect('/');
 }
 
@@ -46,7 +48,7 @@ async function messageDetails(req, res) {
 }
 
 function formatDate(date) {
-  return date
+  return new Date(date)
     .toLocaleString('en-US', {
       hour: 'numeric',
       minute: '2-digit',
