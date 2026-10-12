@@ -9,6 +9,7 @@
   <body class="form-container">
     <h1>Draft New Message</h1>
     <a href="/" class="link">Discard Draft</a>
+    <%- include('partials/errors.ejs') %>
     <form method="POST" action="/new">
       <label for="author">Author:</label>
       <input type="text" name="author" id="author" required />
